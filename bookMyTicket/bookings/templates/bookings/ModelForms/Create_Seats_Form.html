@@ -1,0 +1,16 @@
+{% extends 'bookings/common/HeaderAndFooter.html' %}
+
+{% block content %}
+
+<div class="container border border-success mt-5 p-5">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <br>
+        <input class="btn btn-success mb-2" type="submit" name="Submit">
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'bookings/common/HeaderAndFooter.html' %}
+
+{% block content %}
+
+<div class="container text-center p-3 my-5 border border-primary">
+    <h4>Seat Details</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Seat ID</th>
+                <th scope="col">Booking Status</th>
+                <th scope="col">Booked by </th>
+                <th scope="col">Theater Name</th>
+                <th scope="col">Show Name</th>
+                <th scope="col">Movie Shown</th>
+                
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{seat.id}}</td>
+                <td>{{seat.booking_status}}</td>
+                <td>{{seat.booked_by_cust}}</td>
+                <td>{{seat.shows.theater.name}}</td>
+                <td>{{seat.shows.name}}</td>
+                <td>{{seat.shows.movie_shown}}</td>
+                
+                <td><a href="{% url 'update_seats' seat.id %}" class="btn btn-success">Edit </a></td>
+                <td><a href="{% url 'delete_seats' seat.id %}" class="btn btn-danger">Delete</a></td>
+                    
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

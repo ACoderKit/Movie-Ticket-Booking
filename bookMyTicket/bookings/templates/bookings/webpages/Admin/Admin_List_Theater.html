@@ -1,0 +1,42 @@
+{% extends 'bookings/common/HeaderAndFooter.html' %}
+
+{% block content %}
+
+<div class="container text-center">
+    <div class="my-2">
+        <h3 class="">Available Theaters</h3>
+        <a href="{% url 'create_theater' %}" class="btn btn-success">Add new Theater</a>
+
+    </div>
+    <div class="">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Theater ID</th>
+                    <th scope="col">Theater Name</th>
+                    <th scope="col">Edit Theater</th>
+                    <th scope="col">Delete Theater</th>
+                    <th scope="col">Edit Movie, Shows, Seats</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for theater in theaters %}
+
+                <tr>
+                    <th scope="row">{{theater.id}}</th>
+                    <td></a>{{theater.name}}</td>
+                    <td><a href="{% url 'update_theater' theater.id %}" class="btn btn-success">Edit</a></td>
+                    <td><a href="{% url 'delete_theater' theater.id %} " class="btn btn-danger">Delete</a></td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'list_shows' theater.id %} ">Edit Movie, Shows,
+                            Seats</a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
